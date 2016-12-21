@@ -1,0 +1,33 @@
+{
+  "name": "@borilla/cancellable-promise",
+  "version": "0.1.0",
+  "author": "borilla",
+  "description": "Adds a 'cancel' method to promises to immediately reject the promise",
+  "keywords": [
+    "promise",
+    "cancel"
+  ],
+  "license": "MIT",
+  "repository": "borilla/cancellable-promise",
+  "main": "lib/index.min.js",
+  "scripts": {
+    "test": "npm run unit-test && npm run lint",
+    "build": "npm run clean && npm run minify",
+    "unit-test": "mocha test",
+    "lint": "eslint src test",
+    "clean": "rimraf lib/*",
+    "minify": "uglifyjs src/index.js --compress --mangle-props --mangle-regex=\"/^_/\" --mangle toplevel --screw-ie8 --output lib/index.min.js",
+    "prebuild": "npm test",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "eslint": "^2.13.1",
+    "mocha": "^2.5.3",
+    "rimraf": "^2.5.4",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0",
+    "uglify-js": "^2.7.5"
+  }
+}
