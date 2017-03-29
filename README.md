@@ -11,7 +11,7 @@ Adds a 'cancel' method to promises to immediately reject the promise
 
 ## Installation
 
-Intall the module using npm. The module isn't published yet but can be installed from the github repo:
+Install the module using npm. The module isn't published yet but can be installed from the github repo:
 ```shell
 $ npm install --save borilla/cancellable-promise
 ```
