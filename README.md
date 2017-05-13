@@ -35,6 +35,7 @@ promise.cancel('Cancelled');
 ```javascript
 var CancellablePromise = require('@borilla/cancellable-promise');
 
+var promise = new Promise(function (resolve, reject) { ... });
 var cancellable = CancellablePromise.makeCancellable(promise);
 
 // ...later
