@@ -11,45 +11,38 @@ chai.use(sinonChai);
 chai.use(chaiAsPromised);
 
 describe('cancellable-promise', function () {
-	var sandbox;
+	var sandbox, promise;
 
 	beforeEach(function () {
 		sandbox = sinon.sandbox.create();
+		promise = new CancellablePromise(function (/*resolve, reject*/) {});
 	});
 
 	afterEach(function () {
 		sandbox.restore();
 	});
 
-	describe('a new cancellable promise', function () {
-		var promise;
+	it('should have a cancel method', function () {
+		expect(promise.cancel).to.be.a('function');
+	});
+
+	describe('when cancel method is called', function () {
+		var reason = { msg: 'Cancelled' };
 
 		beforeEach(function () {
-			promise = new CancellablePromise(function (/*resolve, reject*/) {});
+			promise.cancel(reason);
 		});
 
-		it('should have a cancel method', function () {
-			expect(promise.cancel).to.be.a('function');
+		it('should immediately reject the promise', function () {
+			return expect(promise).to.be.rejected;
 		});
 
-		describe('when cancel method is called', function () {
-			var reason = { msg: 'Cancelled' };
+		it('should not fulfill the promise', function () {
+			return expect(promise).to.not.be.fulfilled;
+		});
 
-			beforeEach(function () {
-				promise.cancel(reason);
-			});
-
-			it('should immediately reject the promise', function () {
-				return expect(promise).to.be.rejected;
-			});
-
-			it('should not fulfill the promise', function () {
-				return expect(promise).to.not.be.fulfilled;
-			});
-
-			it('should reject the promise with the given reason', function () {
-				return expect(promise).to.be.rejectedWith(reason);
-			});
+		it('should reject the promise with the given reason', function () {
+			return expect(promise).to.be.rejectedWith(reason);
 		});
 	});
 });
