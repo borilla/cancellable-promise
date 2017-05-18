@@ -2,25 +2,12 @@
 
 var CancellablePromise = require('../src/index');
 var chai = require('chai');
-var sinon = require('sinon');
-var sinonChai = require('sinon-chai');
 var chaiAsPromised = require('chai-as-promised');
 var expect = chai.expect;
 
-chai.use(sinonChai);
 chai.use(chaiAsPromised);
 
 describe('cancellable-promise', function () {
-	var sandbox;
-
-	beforeEach(function () {
-		sandbox = sinon.sandbox.create();
-	});
-
-	afterEach(function () {
-		sandbox.restore();
-	});
-
 	describe('when we create a new cancellable promise', function () {
 		var promise;
 

@@ -1,6 +1,6 @@
 {
   "name": "@borilla/cancellable-promise",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "borilla",
   "description": "Adds a 'cancel' method to promises to immediately reject the promise",
   "keywords": [
@@ -26,8 +26,6 @@
     "eslint": "^3.19.0",
     "mocha": "^2.5.3",
     "rimraf": "^2.6.1",
-    "sinon": "^1.17.7",
-    "sinon-chai": "^2.10.0",
-    "uglify-js": "^2.8.24"
+    "uglify-js": "^2.8.26"
   }
 }
