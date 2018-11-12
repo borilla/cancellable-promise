@@ -99,7 +99,7 @@ describe('cancellable-promise', function () {
 				return expect(cancellablePromise).to.be.rejected;
 			});
 
-			it('should fulfill the cancellable promise with the given value', function () {
+			it('should reject the cancellable promise with the given value', function () {
 				return expect(cancellablePromise).to.be.rejectedWith(reason);
 			});
 		});
