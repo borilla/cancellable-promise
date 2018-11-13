@@ -11,9 +11,9 @@ Adds a 'cancel' method to promises to immediately reject the promise
 
 ## Installation
 
-Install the module using npm. The module isn't published yet but can be installed from the github repo:
+Install the module using npm:
 ```shell
-$ npm install --save borilla/cancellable-promise
+$ npm install cancellable-promise
 ```
 
 ## General usage
@@ -21,7 +21,7 @@ $ npm install --save borilla/cancellable-promise
 ### Creating a new cancellable promise
 
 ```javascript
-var CancellablePromise = require('@borilla/cancellable-promise');
+var CancellablePromise = require('cancellable-promise');
 
 // create a new promise
 var promise = new CancellablePromise(function (resolve, reject) { ... });
@@ -33,7 +33,7 @@ promise.cancel('Cancelled');
 ### Modifying an existing promise
 
 ```javascript
-var CancellablePromise = require('@borilla/cancellable-promise');
+var CancellablePromise = require('cancellable-promise');
 
 var promise = new Promise(function (resolve, reject) { ... });
 var cancellable = CancellablePromise.makeCancellable(promise);

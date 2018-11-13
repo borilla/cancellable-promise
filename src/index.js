@@ -5,15 +5,15 @@ function CancellablePromise(executor) {
 }
 
 CancellablePromise.makeCancellable = function (promise) {
-	var cancel;
-	var p2 = new Promise(function (resolve, reject) {
+	var cancel, p2;
+
+	p2 = new Promise(function (resolve, reject) {
+		promise.then(resolve).catch(reject);
 		cancel = reject;
 	});
-	var p3 = Promise.race([ promise, p2 ]);
+	p2.cancel = cancel;
 
-	p3.cancel = cancel;
-
-	return p3;
+	return p2;
 };
 
 module.exports = CancellablePromise;

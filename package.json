@@ -1,6 +1,6 @@
 {
   "name": "@borilla/cancellable-promise",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "borilla",
   "description": "Adds a 'cancel' method to promises to immediately reject the promise",
   "keywords": [
